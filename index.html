@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar --Tanvesh Padyal</title>
+
+    <!-- font-awesome  -->
+    <script src="https://kit.fontawesome.com/5bfb799d1c.js" crossorigin="anonymous"></script>
+    <!-- css linking  -->
+    <link rel="stylesheet" href="./navbar.css">
+</head>
+
+<body>
+    <!-- home page  -->
+    <div class="home-page">
+        <div class="navbar">
+
+            <!-- logo  -->
+            <div class="logo">
+                MyLogo
+            </div>
+
+            <div class="search-box">
+                <form class="xbox"><input type="search" name="se" id="se" placeholder="search products"><button><i
+                            class="fa-solid fa-search"></i></button></form>
+            </div>
+
+            <span id="smark">
+                <i class="fa-solid fa-search" id="search"></i>
+                <i class="fa-solid fa-xmark" id="xsearch"></i>
+            </span>
+
+            <div class="menue" id="menue">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+
+
+            <!-- navigations -->
+            <nav id="nav">
+                <div class="cancle" id="cn">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Services</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="" class="loginbtn"><Button>Login</Button></a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+
+
+    <script>
+
+
+        const nav = document.querySelector('nav');
+        const mn = document.getElementById('menue');
+        const cn = document.getElementById('cn');
+
+        function togglefun() {
+
+
+            const search = document.getElementById('search');
+            const xsearch = document.querySelector('#xsearch');
+
+
+
+            const xbox = document.querySelector('.search-box');
+            const smark = document.getElementById('smark');
+
+            if (window.innerWidth <= 1150) {
+
+                xbox.style.display = 'none';
+                search.style.display = 'block';
+                xsearch.style.display = 'none';
+
+                search.addEventListener('click', () => {
+                    xbox.style.display = 'inline-block';
+                    search.style.display = 'none';
+                    xsearch.style.display = 'block';
+
+                })
+
+                xsearch.addEventListener('click', () => {
+
+                    xbox.style.display = 'none';
+                    search.style.display = 'block';
+                    xsearch.style.display = 'none';
+                })
+            }
+            else {
+                // If the window width is less than 1150, reset the styles
+                xbox.style.display = 'block';
+                search.style.display = 'none';
+                xsearch.style.display = 'none';
+            }
+        }
+
+        togglefun();
+
+        window.addEventListener('resize', togglefun)
+
+
+
+        mn.addEventListener('click', () => {
+            nav.style.right = '0';
+        })
+        cn.addEventListener('click', () => {
+            nav.style.right = '-100%';
+        })
+    </script>
+</body>
+
+</html>
